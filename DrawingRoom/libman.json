@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "two.js@0.6.0",
+      "destination": "wwwroot/lib/two.js/"
+    },
+    {
+      "library": "jquery@3.3.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "urljs@2.3.1",
+      "destination": "wwwroot/lib/urljs/"
+    }
+  ]
+}
