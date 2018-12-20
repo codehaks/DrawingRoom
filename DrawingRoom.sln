@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingRoom", "DrawingRoom\DrawingRoom.csproj", "{48CA511A-707C-492A-A65E-99B42D5A0B8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48CA511A-707C-492A-A65E-99B42D5A0B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48CA511A-707C-492A-A65E-99B42D5A0B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48CA511A-707C-492A-A65E-99B42D5A0B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48CA511A-707C-492A-A65E-99B42D5A0B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {141C8251-4AD5-4810-A436-9A46E85A013F}
+	EndGlobalSection
+EndGlobal
