@@ -29,12 +29,18 @@
         two.appendTo(el);
 
         var drawCricle = function (x, y) {
-            var circle = two.makeCircle(x, y, 10);
+            var circle = two.makeCircle(x, y, 5);
             circle.fill = "#881111";
 
             two.update();
         }
-
+        var drawLine = function (x1, y1,x2,y2) {
+            var line = two.makeLine(x1, y1,x2,y2);
+            
+            line.linewidth = 5;
+            line.stroke = "#881111";
+            two.update();
+        }
         $("#draw").click(function (e) {
 
             drawCricle(e.pageX, e.pageY)
@@ -61,6 +67,28 @@
             return console.error(err.toString());
         });
 
+        var isDragging = false;
+
+        var lastX = null;
+        var lastY = null;
+
+        $("#draw")
+            .mousedown(function (e) {
+                isDragging = true;
+                lastX = e.pageX;
+                lastY = e.pageY;
+            })
+            .mousemove(function (e) {
+                if (isDragging) {
+                    drawLine(lastX, lastY, e.pageX, e.pageY)
+                    lastX = e.pageX;
+                    lastY = e.pageY;
+                }
+
+            })
+            .mouseup(function () {
+                isDragging = false;
+            });
 
     </script>
 
