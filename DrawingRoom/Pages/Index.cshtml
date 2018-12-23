@@ -34,9 +34,9 @@
 
             two.update();
         }
-        var drawLine = function (x1, y1,x2,y2) {
-            var line = two.makeLine(x1, y1,x2,y2);
-            
+        var drawLine = function (x1, y1, x2, y2) {
+            var line = two.makeLine(x1, y1, x2, y2);
+
             line.linewidth = 5;
             line.stroke = "#881111";
             two.update();
@@ -65,6 +65,10 @@
             .mousemove(function (e) {
                 if (isDragging) {
                     drawLine(lastX, lastY, e.pageX, e.pageY)
+                    connection.invoke("SendLine", lastX, lastY, e.pageX, e.pageY)
+                        .catch(function (err) {
+                            return console.error(err.toString());
+                        });
                     lastX = e.pageX;
                     lastY = e.pageY;
                 }
@@ -85,11 +89,16 @@
             drawCricle(x, y)
         });
 
+        connection.on("ReceiveLine", function (x1, y1, x2, y2) {
+            drawLine(x1, y1, x2, y2)
+        });
+
+
         connection.start().catch(function (err) {
             return console.error(err.toString());
         });
 
-       
+
 
     </script>
 
