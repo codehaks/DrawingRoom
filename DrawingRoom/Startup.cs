@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using DrawingRoom.Hubs;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ namespace DrawingRoom
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -20,6 +22,10 @@ namespace DrawingRoom
             }
 
             app.UseStaticFiles();
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<DrawingHub>("/drawinghub");
+            });
             app.UseMvc();
         }
     }
