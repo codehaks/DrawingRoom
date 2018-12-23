@@ -51,22 +51,6 @@
                 });
         });
 
-
-
-    </script>
-    <script>
-        "use strict";
-
-        var connection = new signalR.HubConnectionBuilder().withUrl("/drawingHub").build();
-
-        connection.on("ReceiveCoord", function (x, y) {
-            drawCricle(x, y)
-        });
-
-        connection.start().catch(function (err) {
-            return console.error(err.toString());
-        });
-
         var isDragging = false;
 
         var lastX = null;
@@ -89,6 +73,23 @@
             .mouseup(function () {
                 isDragging = false;
             });
+
+
+    </script>
+    <script>
+        "use strict";
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/drawingHub").build();
+
+        connection.on("ReceiveCoord", function (x, y) {
+            drawCricle(x, y)
+        });
+
+        connection.start().catch(function (err) {
+            return console.error(err.toString());
+        });
+
+       
 
     </script>
 
