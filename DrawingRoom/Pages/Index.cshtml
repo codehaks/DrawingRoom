@@ -25,43 +25,30 @@
             two = new Two({
                 fullscreen: true
             });
-
         two.appendTo(el);
 
         var drawCricle = function (x, y) {
             var circle = two.makeCircle(x, y, 10);
             circle.fill = "#881111";
-
             two.update();
         }
 
         $("#draw").click(function (e) {
-
-            drawCricle(e.pageX, e.pageY)
-
+            drawCricle(e.pageX, e.pageY);
             connection.invoke("SendCoord", e.pageX, e.pageY)
                 .catch(function (err) {
                     return console.error(err.toString());
                 });
         });
-
-
-
     </script>
     <script>
-        "use strict";
-
         var connection = new signalR.HubConnectionBuilder().withUrl("/drawingHub").build();
-
         connection.on("ReceiveCoord", function (x, y) {
             drawCricle(x, y)
         });
-
         connection.start().catch(function (err) {
             return console.error(err.toString());
         });
-
-
     </script>
 
 
